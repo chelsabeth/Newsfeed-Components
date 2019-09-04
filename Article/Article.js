@@ -88,7 +88,7 @@ const data = [
   },
   {
     title: 'Fluffy Kitty!',
-    date: 'day 547 with the hooman',
+    date: 'day 547 with hooman',
     firstParagraph: 'Pounce on unsuspecting person. Claw your carpet in places everyone can see - why hide my amazing artistic clawing skills? paw at beetle and eat it before it gets away yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose',
 
     secondParagraph: 'Attack like a vicious monster human is washing you why halp oh the horror flee scratch hiss bite, or shake treat bag cat not kitten around destroy couch licks paws fall asleep upside-down. Jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human',
@@ -131,7 +131,7 @@ const data = [
 
 */
 
-const articles = document.querySelector('.articles');
+const container = document.querySelector('.articles');
 
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const articles = document.createElement('div');
@@ -161,18 +161,18 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   parOne.textContent = firstParagraph;
   parTwo.textContent = secondParagraph;
   parThree.textContent = thirdParagraph;
+  expandButton.textContent = "Read More";
 
   // Event Listener
   expandButton.addEventListener('click', (e) => {
-    console.log('button is clicked')
-    articles.classList.toggle('articlesOpen');
+    console.log('button is clicked!')
+    articles.classList.toggle('article-open');
+    articles.classList.toggle('close');
   });
 
   return articles
 };
 
-articles.appendChild(createArticle('dsjfiwefj', '5949485', 'fjejeiw', 'jdsfiwefie', 'skjfiewjfw'));
-
 data.forEach(data => {
-  articles.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+  container.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
  });
