@@ -36,14 +36,14 @@ let menuItems = [
 
 const header = document.querySelector('.header');
 
-function creatMenu(data) {
+function createMenu(data) {
 
   const menu = document.createElement('div');
   const menuItem = document.createElement('ul');
 
 // Setup structure of elements
-  menu.appendChild(uList);
-  menuItem.appendChild(listItem);
+  header.appendChild(menu);
+  menu.appendChild(menuItem);
  
 // Set class names
   menu.classList.add('menu');
@@ -55,13 +55,13 @@ function creatMenu(data) {
     menu.classList.toggle('menu--open')
   });
 
+  data.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    menuItem.appendChild(listItem);
+  });
+
   return menu;
 };
-
-data.forEach(item => {
-  const listItem = document.createElement('li');
-  menuItem.appendChild(listItem);
-  listItem.textContent = item;
-});
 
 header.appendChild(createMenu(menuItems));
